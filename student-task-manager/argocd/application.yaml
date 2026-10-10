@@ -1,40 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
-
 metadata:
-
   name: student-task-manager
-
   namespace: argocd
-
 spec:
-
   project: default
-
   source:
-
     repoURL: https://github.com/sani-patil/devOps-project-1.git
-
     targetRevision: main
-
-    path: student-task-backend/k8s
-
+    path: student-task-manager/k8s
   destination:
-
     server: https://kubernetes.default.svc
-
     namespace: student-app
-
   syncPolicy:
-
     automated:
-
       prune: true
-
       selfHeal: true
-
     syncOptions:
-
       - CreateNamespace=true
-
-
